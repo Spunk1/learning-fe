@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190420</title>
+	<script src="../20190419/common.js"></script>
+	<script>
+		function load(){
+			var xhr = createXhr();
+			xhr.open("get","province2.php",false);//此处为同步加载
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4 && xhr.status==200){
+					var str = xhr.responseText;
+					var arr = JSON.parse(str);
+					console.log(str);
+					var html ="";
+					for(var i=0;i<arr.length;i++){
+						html += "<option value='"+i+"'>"+arr[i]+"</option>";
+					}
+					$("province").innerHTML=html;
+				}
+			}
+			xhr.send(null);
+		}
+		
+		function change(){
+			var xhr = createXhr();
+			var value = $("province").value;
+			xhr.open("get","city2.php?value="+value,true);
+			xhr.onreadystatechange=function(){
+				if (xhr.readyState==4 && xhr.status==200){
+					var str = xhr.responseText;
+					var arr = JSON.parse(str);
+					//console.log(str[1]);
+					var html = "";
+					for(var i=0;i<arr.length;i++){
+						html += "<option>"+arr[i]+"</option>";
+					}
+					$("city").innerHTML=html;
+				}
+			}
+			xhr.send(null);
+		}
+		
+		function pageload(){
+			load();
+			change();
+		}
+	</script>
+</head>
+
+<body onload="pageload()">
+	<select id="province" onchange="change()"></select>
+	<select id="city"></select>
+</body>
+</html>

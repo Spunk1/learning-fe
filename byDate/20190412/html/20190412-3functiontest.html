@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190412test3_function</title>
+</head>
+<body>
+<script>
+
+	var a = Number(prompt("请输入第一个数"));
+	/* 不够简洁 边界为n<3
+	function change(i){
+	
+	if(i==1){
+		return 1;
+	}else if(i==2){
+		return 1;
+	}else{
+		return change(i-1)+change(i-2);
+	};
+	
+	}*/
+	function change(i){
+		if (i<3){
+			return 2;
+		}else{
+			return change(i-1)+change(i-2);
+		}
+	}
+	
+</script>
+
+<input type="button" value ="调用函数" onclick="console.log(change(a))">
+</body>
+</html>

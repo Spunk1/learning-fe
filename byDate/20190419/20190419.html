@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190419</title>
+	<script src="common.js"></script>
+	<script>
+		function change(){
+			var val = $("selection").innerHTML;
+			var val2 = $("selection2").innerHTML;
+			var html = "";
+				html += "<option>"
+				html += "===有===";
+				html += "</option>";
+			$("selection2").innerHTML = html;
+			console.log(val2);
+		}
+		
+		function array(){
+			var val = $("selection").value;
+			var val2 = $("selection2").innerHTML;
+			var arr = [
+				["长春市","吉林市","四平市","白城市"],
+				["哈尔滨市","齐齐哈尔市","牡丹江市","佳木斯市"],
+				["沈阳市","大连市","鞍山市","抚顺市"]
+			];
+			var html = "";
+			if (val=="3"){
+				html += "<option>"
+				html += "===请先选择省份===";
+				html += "</option>"
+			}else{
+				for (var i=0;i<arr[val].length;i++){
+					html += "<option>"
+					html += arr[val][i];
+					html += "</option>"
+					//html += "&#10";
+				}
+			}
+			console.log(html);
+			// var2 = html; 不行 只修改了VAL2的值，没有修改到$("selection2").innerHTML
+			$("selection2").innerHTML = html;
+		}
+		
+	</script>
+</head>
+<body>
+	<select id="selection" onchange="array()">
+		<option value="3">===请选择===</option>
+		<option value="0">吉林</option>
+		<option value="1">黑龙江</option>
+		<option value="2">辽宁</option>
+	</select>
+	
+	<select id="selection2" >
+
+	</select>
+</body>
+</html>

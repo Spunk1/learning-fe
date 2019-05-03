@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190419_homework</title>
+	<script src="common.js"></script>
+	<script>
+		function checkUname(){
+		var xhr = createXhr();
+		var uname = $("uname").value;
+
+		var url = "homework2.php?uname="+uname;
+		xhr.open("get",url,true);
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				var resText = xhr.responseText;
+				$("msg").innerHTML = resText;
+			}
+		}
+		xhr.send(null);
+
+		}
+	</script>
+</head>
+<body>
+	<p>用户名：</p>
+	<input type="text" id="uname" onblur="checkUname()">
+	<div id="msg"></div>
+
+</body>
+</html>

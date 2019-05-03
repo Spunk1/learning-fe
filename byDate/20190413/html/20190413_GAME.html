@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190413_game</title>
+</head>
+
+<body>
+	<script>
+		function game(){
+			var num = parseInt(Math.random()*100+1);
+			console.log(num);
+			var input;
+			var input1;
+			while (1){
+				input=prompt("input");
+				if (input=="exid"){
+					alert("游戏结束！");
+					break;
+				}
+				
+				if (Number(input)==num){
+					alert("真棒！！！");
+					break;
+				}else if(Number(input)<num){
+					alert("太小了！！");
+				}else{
+					alert("太大了！！");
+				}
+			}
+		
+		}
+	</script>
+	
+	<button onclick="game()">测试</button>
+</body>
+</html>

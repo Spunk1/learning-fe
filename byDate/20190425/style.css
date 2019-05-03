@@ -1,0 +1,341 @@
+	/*总体申明开始*/
+		* {
+			margin: 0px;
+			padding: 0px;  /*清除内外边距*/
+		}
+		ul {
+			list-style: none;	/*清除列表样式*/
+		}
+		.clearfix:before, .clearfix:after {		/*消除浮动*/
+			display: table;
+			content: "";
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1;
+		}
+		
+		body {
+			background-color: #f3f5f7;
+		}
+		a {
+			color: #050505;
+			text-decoration: none;
+		}
+		input {
+			border: 0px;
+		}
+		.container {				/*提前声明一个公共类 后面调用*/
+			width: 1200px;
+			margin: 0 auto;
+		}
+	/*总体申明结束*/
+	
+	/*页面头部开始*/
+		/*页面头部部分 nav 导航栏标签*/
+		header {
+			height: 100px;
+			overflow: hidden;  /*消除外边距合并问题*/
+		}
+		nav {
+			width: 1366px;
+			height: 42px;
+			margin: 29px auto;
+		}
+		.logo {
+			float: left;
+		}
+		/*导航栏*/
+		.navber {
+			float: left;
+			line-height: 42px;
+			margin-left: 50px;
+		}
+		.navber li {
+			float: left;
+		}
+		.navber li a {
+			padding: 0 10px;
+			display: block;
+			height: 42px;
+		}
+		.navber li a:hover {
+			border-bottom: 2px solid #00a4ff;
+		}
+		
+		/*搜索框*/
+		.search {
+			width: 410px;
+			height: 38px;
+			border: 2px solid #00a4ff;
+			float: right;
+		}
+		.search input[type=text] {		/*属性选择器*/
+			width: 340px; 
+			height: 38px;				/*高度不继承*/
+			padding-left: 20px;
+			float: left;
+		}
+		.search input[type=submit] {
+			width: 50px;
+			height: 38px;
+			float: left;
+			background: #00a4ff url(image/search.png) center center no-repeat;
+		}
+		/*个人中心*/
+		.personal {
+			float: right;
+			height: 42px;
+			line-height: 42px;
+			margin: 0px 15px 0px 35px;
+		}
+		.personal a img {
+			margin: 0 10px;
+			vertical-align: middle;
+		}
+	/*总体申明结束*/
+	
+	/*banner开始*/
+		.banner {
+			height: 420px;
+			background-color: #1c036c;
+		}
+		.banner-in {
+			height: 420px;
+			background: url(image/banner2.png) 0 0 no-repeat;
+			position: relative;
+		}
+		.slideber {
+			height: 420px;
+			width: 190px;
+			background-color: rgba(0,0,0,0.3);
+			float: left;
+		}
+		.slideber li a {
+			color: #ffffff;
+			font-size: 14px;
+			padding: 0 20px;
+			display: block;
+			height: 46px;
+			line-height: 46px;
+		}
+		.slideber li a:hover {
+			color: #0393d9;
+		}
+		.slideber li a span {
+			float: right;
+		}
+		.timetable {
+			width: 230px;
+			height: 300px;
+			background-color: #ffffff;
+			float: right;
+			margin: 50px 0;
+		}
+		.timetable dt {
+			height: 50px;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: 2px;
+			color: #ffffff;
+			background-color: #9bceea;
+			text-align: center;
+			line-height: 50px;
+			margin-bottom: 5px;
+		}
+		.timetable dd {
+			width: 190px;
+			height: 60px;
+			margin: 0 auto;
+			border-bottom: 1px solid #ccc;
+			padding-top:15px;
+			box-sizing: border-box;
+		}
+		.timetable dd h4 {
+			font-size: 16px;
+			font-weight: normal;
+			color: #4e4e4e;
+		}
+		.timetable dd p {
+			font-size: 12px;
+			color: #a5a5a5;
+		}
+		.timetable dd:last-child, dd:nth-child(4) {
+			border: 0px;
+		}
+		.timetable dd a {
+			height: 40px;
+			border: 2px solid #00a4ff;
+			display: block;
+			line-height: 40px;
+			text-align: center;
+			color: #00a4ff;
+			font-weight: 600;
+			letter-spacing: 2px;
+		}
+		.timetable dd a:hover {
+			background-color: #00a4ff;
+			color: #fff;
+		}
+		.dop {
+			width: 180px;
+			height: 22px;
+			position: absolute;
+			left: 50%;
+			margin-left:-90px;
+			bottom: 30px;
+		}
+		.dop li {
+			float: left;
+			width: 12px;
+			height: 12px;
+			background: rgba(255,255,255,0.7);
+			margin: 6px 8px;
+			border-radius: 50%;
+		}
+		.dop li:hover {
+			float: left;
+			width: 20px;
+			height: 12px;
+			background-color: #fff;
+			margin: 6px 8px;
+			border-radius: 6px;
+		}
+	/*banner结束*/
+	
+	/*recomment开始*/
+		.recommend {
+			height: 60px;
+			background-color: #fff;
+			margin-top: 8px;
+			box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+			line-height: 60px;
+		}
+		.recommend a {
+			padding: 0 30px;
+			border-right: 1px solid #bfbfbf;
+		}
+		.recommend a:first-child {
+			color: #00a4ff;
+			font-weight: 600;
+		}
+		.recommend a:last-child {
+			color: #00a4ff;
+			font-size: 14px;
+			float: right;
+			border: 0;
+		}
+		.recommend a:hover {
+			color: #00a4ff;;
+			
+		}
+		
+	/*recomment结束*/
+	/* recom-main start */
+		.recom-main {
+			margin-top: 35px;
+		}
+		.recom-hd {
+			height: 40px;
+			line-height: 40px;
+		}
+		.recom-hd h4 {
+			float: left;
+			color: #494949;
+		}
+		.recom-hd a {
+			float: right;
+			font-size: 12px;
+			color: #bcbcbd;
+			margin-right: 30px;
+		}
+		.recom-hd a:hover {
+			color: #00A4FF;
+		}
+
+		.recom-bd ul li {
+			width: 228px;
+			height: 270px;
+			background-color: #fff;
+			overflow: hidden;
+			float: left;
+			margin-right: 15px;
+			margin-top: 15px;
+			box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+		}
+		.recom-bd ul li:nth-child(5n) {
+			margin-right: 0;
+		}
+		.recom-bd li h4 ,
+		.recom-bd li p
+		{
+			padding: 0 20px 0 24px;
+		}
+		.recom-bd li h4 {
+			margin-top: 12px;
+			line-height: 20px;
+			font-weight: 400;
+			font-size: 14px;
+		}
+		.recom-bd li p {
+			margin-top: 19px;
+			font-size: 12px;
+			color: #999;
+		}
+		.recom-bd li span {
+			color: #ff7c2d;
+		}
+		
+	/* recom-main end */
+	/* 页面底部开始 */
+		footer {
+			height: 270px;
+			background-color: #fff;
+			margin-top: 100px;
+		}
+		.footer-in {
+			padding-top: 30px;
+		}
+		.left
+		{
+			float: left;
+		}
+		.left p {
+			width: 430px;
+			height: 35px;
+			font-size: 12px;
+			line-height: 18px;
+			margin-top: 24px;
+			margin-bottom: 12px;
+			color: #666;
+		}
+		.left a {
+			width: 120px;
+			height: 34px;
+			display: block;
+			border: 1px solid #00a4ff;
+			line-height: 34px;
+			text-align: center;
+			color: #00a4ff;
+		}
+		.right {
+			float: right;
+		}
+		.lise-1,
+		.lise-2,
+		.lise-3 {
+			float: right;
+			margin-left: 120px;
+			color: #333333;
+		}
+		.right dt {
+			height: 30px;
+			font-size: 16px;
+		}
+		.right dd {
+			height: 20px;
+			font-size: 12px;
+		}
+	/* 页面底部结束 */

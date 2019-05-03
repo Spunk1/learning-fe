@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190412test2_function</title>
+</head>
+<body>
+<script>
+	/*function sayHolle(){
+	console.log("HELLO WORLD!!");
+	}
+	
+	function testsayHolle(){
+		sayHolle();
+	}*/
+	var a = Number(prompt("请输入第一个数"));
+	var b = Number(prompt("请输入第二个数"));
+	function change(i,j){
+	i>j && (i ^= j, j ^= i, i ^= j);
+	console.log(i,j);
+	alert(i,j);
+	document.write(i,j);
+	}
+</script>
+
+<!--<input type="button" value="点我试试！！" onclick="sayHolle()">
+<input type="button" value="点我试试2！！" onclick="testsayHolle()">
+-->
+<!--<button onclick="sayHolle()">点击调用sayHolle</button>
+<button onclick="testsayHolle()">点击调用testsayHolle</button>-->
+
+<input type="button" value ="调用函数" onclick="change(a,b)">
+</body>
+</html>

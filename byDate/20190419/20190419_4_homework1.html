@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190419_testAjax</title>
+	<script src="common.js"></script>
+	<script>
+	/**
+	*单击按钮时向服务器发送异步请求并接收响应数据，显示在
+	msg-show里
+	*/
+		function getInfo(){
+			//1.创建/获取XHR
+			var xhr = createXhr();
+			//2.创建请求
+			
+			var uname = $("uname").value; //获取文本框中的值
+			var url = "homework1.php?uname="+uname;
+			xhr.open("get",url,true);
+			//3.设置 onreadystatechange  //设置回调函数
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					var resText = xhr.responseText;
+					$("msg-show").innerHTML = resText;
+				}
+			}
+			//4.发送请求
+			xhr.send(null);
+		}
+	</script>
+</head>
+<body>
+	<p>用户名</p>
+	<input type="text" onblur="getInfo()" id="uname">
+	<div id="msg-show"></div>
+</body>

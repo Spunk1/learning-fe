@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190419</title>
+	<script src="common.js"></script> 
+	<script>
+	
+	function test(){
+		var span = $("d2");
+		var value = $("d1").value;
+		if (value==""){
+			span.innerHTML = "用户名不能为空";
+		}else{
+			span.innerHTML = "通过！";
+		}
+	
+	}
+
+	</script>
+</head>
+
+<body>
+
+<input type="text" id="d1" onblur="test()">
+<span id="d2">*</span>
+
+	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			a {
+				text-decoration: none;
+				color: #fff;
+			}
+			.a {
+				width: 1000px;
+				height: 200px;
+				background-color: red;
+				margin: 0 auto;
+			}
+			.a div {
+				float: left;
+			}
+/* 			.a div:last-child {
+				width: 100px;
+				height: 200px;
+				background-color: yellow;
+			}
+			.a div:first-child {
+				width: 100px;
+				height: 200px;
+				background-color: blue;
+			} */
+			.a .d {
+				width: 100px;
+				height: 200px;
+				background-color: green;
+				/* visibility: hidden; */
+			}
+			.a .c:hover .d {
+				background-color: palegoldenrod;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="a">
+			<!-- <div class="b">1</div> -->
+			<div class="c"><div class="d">1</div></div>
+<!-- 			<div>3</div> -->
+		</div>
+	</body>
+</html>

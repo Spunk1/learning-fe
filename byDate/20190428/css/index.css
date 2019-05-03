@@ -1,0 +1,249 @@
+/* 首页样式文件 非基本头尾样式 */
+.gird {
+	height: 480px;
+}
+.ad {
+	width: 250px;
+	height: 480px;
+	background-color: transparent;
+	position: absolute;
+	left: -250px;
+	top: 0;
+}
+.ad-r {
+	position: absolute;
+	top: 0px;
+	left: 250px;
+	z-index: 999;
+	width: 0px;
+	height: 480px;
+	transition: all 0.8s;
+	background: url(../image/ad-r.jpg) no-repeat;
+}
+.ad:hover .ad-r {
+	width: 990px;
+}
+.gird .left {
+	width: 190px;
+	height: 480px;
+	background-color: #fefefe;
+	border-top: 1px solid #ccc;
+	position: relative;
+}
+.gird .center {
+	width: 790px;
+	height: 480px;
+	margin-left: 10px;
+}
+.gird .right {
+	width: 190px;
+	height: 480px;
+	position: relative;
+}
+.left ul {
+	margin-top: 6px;
+}
+.left li {
+	height: 26px;
+	line-height: 26px;
+	color: #626262;
+	font-size: 14px;
+	padding-left: 18px;
+}
+.left a {
+	color: #626262;
+}
+/* .tanchuang {
+	width: 999px;
+	height: 100%;
+	background-color: red;
+	box-shadow: 5px 5px 3px 4px rgba(255,255,255,0.5);
+	position: absolute;
+	top: 0;
+	left: 190px;
+} */
+.left li:hover {
+	background-color: #ccc;
+}
+.left a:hover {
+	color: #f10215;
+}
+.imgb {
+	margin-top: 10px;
+}
+.imgb img:first-child {
+	float: left;
+}
+.imgb img:last-child {
+	float: right;
+}
+.center-imgt {
+	position: relative;
+}
+
+.pageup,
+.pagedown {
+	position: absolute;
+	width: 24px;
+	height: 40px;
+	background-color: rgba(255,255,255,0.4);
+	font-family: "icomoon";
+	line-height: 40px;
+	text-align: center;
+}
+
+.pageup {
+	top: 50%;
+	transform: translateY(-50%);
+}
+.pagedown {
+	top: 50%;
+	right: 0px;
+	transform: translateY(-50%);
+}
+.circol {
+	width: 167px;
+	height: 20px;
+	padding-left: 8px;
+	background-color: rgba(255,255,255,0.6);
+	position: absolute;
+	left: 50%;
+	bottom: 20px;
+	transform: translateX(-50%);
+	border-radius: 10px;
+}
+.circol li {
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	float: left;
+	border-radius: 50%;
+	margin: 4px 4px;
+}
+.circol li:hover {
+	background-color: #f10215;
+}
+.login {
+	height: 85px;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 15px;
+}
+.logintop {
+	height: 60px;
+	padding-left: 70px;
+	font-size: 12px;
+	color: #666;
+	white-space: nowrap;		/* 强制一行内显示 */
+	overflow: hidden;			/* 超出部分隐藏 */
+	text-overflow: ellipsis;	/* 超出显示为... */
+	line-height: 20px;
+	position: relative;
+}
+.user {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: url(../image/sprite_userinfo@1x.png) no-repeat;
+	background-position: -70px 0;
+}
+.user img {
+	width: 38px;
+	border-radius: 50%;
+	margin: 6px;
+}
+.loginbottom a {
+	width: 70px;
+	height: 20px;
+	display: inline-block;
+	border: 2px solid #f10215;
+	font-size: 14px;
+	margin-right: 3px;
+	text-align: center;
+	line-height: 20px;
+	color: #f10215;
+}
+.loginbottom a:hover {
+	background-color: #f10215;
+	color: #fff;
+}
+.news {
+	height: 155px;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 7px 13px 0;
+	box-sizing: border-box;
+}
+.newst {
+	height: 20px;
+	border-bottom: 1px solid #ccc;
+	line-height: 20px;
+	font-size: 12px;
+	color: #999;
+	position: relative;
+}
+.cx,
+.gg {
+	margin-left: 5px;
+	margin-right: 5px;
+	height: 20px;
+	line-height: 20px;
+}
+.gd {
+	float: right;
+	height: 20px;
+	line-height: 20px;
+}
+.newst div {
+	width: 28px;
+	height: 2px;
+	background-color: #f10215;
+	position: absolute;
+	bottom: -1px;
+	left: 5px;
+}
+.newsb {
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+.newsb li {
+	font-size: 12px;
+	line-height: 23px;
+}
+.expand {
+	height: 209px;
+	background-color: #fff;
+	overflow: hidden;
+}
+.expand ul {
+	width: 195px;
+	height: 210px;
+}
+.expand li {
+	width: 47px;
+	height: 69px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.expand li a {
+	display: block;
+	padding-top: 15px;
+	text-align: center;
+	font-size: 12px;
+}
+.expand li i {
+	width: 30px;
+	height: 23px;
+	margin: 0 auto;
+	background-color: red;
+	display: block;
+	background: url(../image/sprite_fs@1x.png) no-repeat;
+}
+.expand li:first-child i {
+	background-position: 2px -88px;
+}
+.expand li:nth-child(2) i {
+	background-position: 2px -45px;
+}

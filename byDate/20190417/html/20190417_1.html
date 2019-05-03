@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190415_array</title>
+	<script>
+		function getinput(){
+			var uname = document.getElementById("d2");
+			var div = document.getElementById("d1");
+			div.innerHTML = "<h1>"+uname.value+"</h1>";
+		}
+		
+		function $(id){
+			return document.getElementById(id);
+		}
+	</script> 
+</head>
+
+<body>
+<div id="d1"></div>
+<input type="text" id="d2">
+<button onclick="getinput()">测试</button>
+	
+</body>
+</html>

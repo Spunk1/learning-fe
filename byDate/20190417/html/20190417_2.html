@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190419</title>
+	<script src="common.js"></script> 
+	<script>
+	function test(){
+		var div = $("d1");
+		var value = $("d2").value;
+		div.innerHTML = "<h1>"+value+"</h1>"
+	
+	}
+
+	function test1(){
+		$("d1").innerHTML = "<h1>"+$("d2").value+"</h1>";
+	}
+	
+	</script>
+</head>
+
+<body>
+
+<div id="d1"></div>
+<input type="text" id="d2" onblur="test1()">
+<button onclick="test()">测试</button>
+	
+</body>
+</html>

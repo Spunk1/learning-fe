@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190415_array</title>
+</head>
+
+<body>
+	<script>
+		function tentotwo(num){
+			var arr = [];
+			while(num>0){
+				var r = num%16;
+				arr.push(r);
+				num = parseInt(num/16);
+			}
+			return arr.reverse().join("");
+		}
+		
+		function test (){
+			var input = parseInt(prompt("请输入要准换的数字"));
+			var str = tentotwo(input);
+			console.log(input+">>>>>"+str);
+		}
+	</script>
+	
+	<button onclick="test()">测试</button>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190415_array</title>
+	<script>
+		function printDIV(){
+			var elem = document.getElementById("d1");
+			elem.innerHTML = "<h2>hahaha</h2>";
+			/*
+			*简写方式：
+			* document.getElementById("d1").innerHTML = "";
+			*/
+			
+			console.log(elem);
+			console.log(elem.innerHTML);
+		
+		}
+		
+		function getinput(){
+			var uname = document.getElementById("d2");
+			console.log(uname.value);
+			uname.value = "你好！";
+			console.log(uname.value);
+		}
+	
+	</script>
+</head>
+
+<body>
+<div id="d1">HELLO WORLD</div>
+<input type="text" id="d2">
+<button onclick="getinput()">测试</button>
+	
+</body>
+</html>

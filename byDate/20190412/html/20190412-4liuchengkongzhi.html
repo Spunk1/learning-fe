@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190412test3_function</title>
+</head>
+<body>
+<script>
+ function getMoney(){
+	var price,count,money,totle,change;
+	price = Number(prompt("请输入商品单价"));
+	count = Number(prompt("请输入购入数量"));
+	money = price*count;
+	totle = Number(prompt("请输入收入"));
+	if (money > 500){
+		money = 0.8*money;
+	}
+	change = totle-money;
+	
+	console.log("商品单价为："+price);
+	console.log("购入数量为："+count);
+	console.log("收入金额为："+totle);
+	console.log("找零金额为："+change);
+ 
+ }
+</script>
+
+<input type="button" value ="调用函数" onclick="getMoney()">
+</body>
+</html>

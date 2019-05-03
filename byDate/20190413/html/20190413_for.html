@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190413_game</title>
+</head>
+
+<body>
+	<script>
+		function print99(){
+			var num = Number(prompt("请输入打印行数"));
+			var print = "";
+			for (var i=1;i<=num;i++){
+				var msg = i+"*"+num+"="+(i*num);
+				print += (msg+"\t");
+			}
+			console.log(print);
+		}
+		
+		function sum(){
+			var sum = 0;
+			for (var i=1;i<=999;i+=2){
+				sum += 1/i
+			}
+			console.log(sum);
+		}
+		
+		function sushu(){
+			var num = Number(prompt("请输入数字"));
+			var su = true;
+			for (var i=2;i<num;i++){
+				if (num%i==0){
+					su = false;
+					break;
+				}
+			}
+			if (su){
+			console.log(num+"是素数");
+			}else{
+			console.log(num+"不是素数");
+			}
+		}
+	</script>
+	
+	<button onclick="sushu()">测试</button>
+</body>
+</html>

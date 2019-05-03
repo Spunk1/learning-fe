@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190413test</title>
+</head>
+
+<body>
+	<script>
+		/*function sum100(){
+			var n = 0;
+			var sum = 0;
+			while (n<=100){
+				if (n%2 == 0){
+					sum += n;
+					n += 1;
+				}else{
+					n+=1;
+					continue;
+				}
+			}
+			console.log(sum);
+		}*/
+		
+		function print(){
+			//var exid = "EXID";
+			while (1){
+				var msg = prompt("请输入要打印的内容，输入EXID结束");
+				if (msg==="EXID"){
+					break;
+				}else{
+					console.log(msg);
+				}
+			}
+		
+		}
+		
+		function print1(){
+			var msg;
+			while ((msg = prompt("请输入要打印的内容，输入EXID结束"))!="EXID"){
+				//var msg = prompt("请输入要打印的内容，输入EXID结束");
+				console.log(msg);
+				}
+			}
+		
+	</script>
+	
+	<button onclick="print()">测试</button>
+</body>
+</html>

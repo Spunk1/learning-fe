@@ -1,0 +1,17 @@
+[
+	{
+	  "uname":"张三",
+	  "upwd":12,
+	  "gender":"男"
+	},
+	{
+	  "uname":"李四",
+	  "upwd":12,
+	  "gender":"男"
+	},
+	{
+	  "uname":"王五",
+	  "upwd":12,
+	  "gender":"男"
+	}
+]

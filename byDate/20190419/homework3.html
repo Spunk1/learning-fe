@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"> 
+	<title>20190419_homework3</title>
+	<script src="common.js"></script>
+	<script>
+		function check(){
+			var xhr = createXhr();
+			var uname = $("uname").value;
+			var upsw = $("upsw").value;
+			//var url = "homework3.php?upsw="+upsw+"&uname="+uname;
+			//console.log(url);
+			xhr.open("post","homework3.php",true);
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status){
+					$("msg").innerHTML = xhr.responseText;
+				}
+			}
+			//设置请求消息头，使用POST时需要设置
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			xhr.send("uname="+uname+"&upsw="+upsw);
+		}
+	</script>
+</head>
+<body>
+<input type="text" id="uname">
+<input type="password" id="upsw">
+<button onclick="check()">验证</button>
+<div id="msg"></div>
+</body>
+</html>

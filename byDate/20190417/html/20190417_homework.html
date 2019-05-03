@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>20190419</title>
+	<script src="common.js"></script> 
+	<script>
+		function setDate(){
+			$("r1d1").innerHTML = "1";
+			$("r1d2").innerHTML = "《西游记》";
+			$("r1d3").innerHTML = "吴承恩";
+			$("r1d4").innerHTML = "<button>删除</button>"+" "+"<button>修改</button>";
+		
+			$("r2d1").innerHTML = "2";
+			$("r2d2").innerHTML = "《红楼梦》";
+			$("r2d3").innerHTML = "曹雪芹";
+			$("r2d4").innerHTML = "<button>删除</button>"+" "+"<button>修改</button>";
+			
+			$("r3d1").innerHTML = "3";
+			$("r3d2").innerHTML = "《水浒传》";
+			$("r3d3").innerHTML = "施耐庵";
+			$("r3d4").innerHTML = "<button>删除</button>"+" "+"<button>修改</button>";
+			
+			$("r4d1").innerHTML = "4";
+			$("r4d2").innerHTML = "《三国演义》";
+			$("r4d3").innerHTML = "罗贯中";
+			$("r4d4").innerHTML = "<button>删除</button>"+" "+"<button>修改</button>";
+		}
+		
+	</script>
+</head>
+
+<body>
+
+<table align="center" border="1" cellspacing="0">
+	<thead>
+	<tr align="center" valign="middle" bgcolor="green">
+		<td width="90">编号</td>
+		<td width="200">书名</td>
+		<td width="120">作者</td>
+		<td width="200">操作</td>
+	</tr>
+	</thead>
+	
+	<tr align="center" valign="middle">
+		<td width="90" height="40" id="r1d1"></td>
+		<td width="200" id="r1d2"></td>
+		<td width="120" id="r1d3"></td>
+		<td width="200" id="r1d4"></td>
+	</tr>
+	
+	<tr align="center" valign="middle">
+		<td width="90" height="40" id="r2d1"></td>
+		<td width="200" id="r2d2"></td>
+		<td width="120" id="r2d3"></td>
+		<td width="200" id="r2d4"></td>
+	</tr>
+	
+	<tr align="center" valign="middle">
+		<td width="90" height="40" id="r3d1"></td>
+		<td width="200" id="r3d2"></td>
+		<td width="120" id="r3d3"></td>
+		<td width="200" id="r3d4"></td>
+	</tr>
+	
+	<tr align="center" valign="middle">
+		<td width="90" height="40" id="r4d1"></td>
+		<td width="200" id="r4d2"></td>
+		<td width="120" id="r4d3"></td>
+		<td width="200" id="r4d4"></td>
+	</tr>
+</table>
+
+<div align="center">
+<button onclick="setDate()">加载数据</button>
+</div>
+	
+</body>
+</html>
