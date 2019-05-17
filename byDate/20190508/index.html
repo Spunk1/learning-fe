@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ad</title>
+    <!-- <script src="../20190419/common.js"></script> -->
+    <!-- <script>
+            var name = document.getElementById("name")
+            function test(){
+                // var name = document.getElementById("name").value;
+                var msg = document.getElementById("msg");
+                console.log(name);
+                if(name.value != ""){
+                    var xhr = creatXhr();
+                    xhr.open("get","index.php?name="+name,true);
+                    xhr.onreadystatechange=function(){
+                        if (xhr.readyState==4 && xhr.status==200){
+                            var str = xhr.responseText;
+                            console.log(str);
+                            if (str=="true"){
+                                msg.innerHTML="通过";
+                            }else{
+                                msg.innerHTML="不通过";
+                            }
+                        }
+                    }
+                    xhr.send(null);
+                }
+            }
+    
+            function creatXhr(){
+                var xhr;
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();
+                }else{
+                    xhr = new ActiveXObject("Micrsoft.XMLHttp");
+                }
+                return xhr;
+            }
+    </script> -->
+</head>
+
+<body>
+    用户名：<input type="text" id="name" onkeyup="test()">
+    <span id="msg"></span>
+
+    <script>
+            function test(){
+                var name = document.getElementById("name").value;
+                var msg = document.getElementById("msg");
+                console.log(document.getElementById("name").value);
+                if(name != ""){
+                    // console.log(name.value);
+                    var xhr = creatXhr();
+                    xhr.open("get","index.php?name="+name,true);
+                    xhr.onreadystatechange=function(){
+                        if (xhr.readyState==4 && xhr.status==200){
+                            var str = xhr.responseText;
+                            console.log(str);
+                            if (str=="true"){
+                                msg.innerHTML="通过";
+                            }else{
+                                msg.innerHTML="不通过";
+                            }
+                        }
+                    }
+                    xhr.send(null);
+                }
+            }
+    
+            function creatXhr(){
+                var xhr;
+                if(window.XMLHttpRequest){
+                    xhr = new XMLHttpRequest();
+                }else{
+                    xhr = new ActiveXObject("Micrsoft.XMLHttp");
+                }
+                return xhr;
+            }
+    </script>
+</body>
+</html>

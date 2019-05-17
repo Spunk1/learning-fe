@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 外层函数包裹要保护的变量和内层函数
+        function outer() {
+            var i = 1 ;
+            // 外层函数返回内层函数
+            return function () {
+                console.log(i++);
+            }
+        }
+        // 调用外层函数获得内层函数对象 getnum = function(){console.log(i++)};  getnum 为一个函数
+        var getnum = outer();
+        getnum();
+        getnum();
+        getnum();
+        getnum();
+        // getnum = null;       结束闭包
+    </script>
+</body>
+</html>

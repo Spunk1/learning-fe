@@ -11,3 +11,7 @@ function createXhr(){
 	}
 	return xhr;
 }
+
+function ajax(){
+
+}

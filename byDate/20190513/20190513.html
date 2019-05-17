@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //"use strict"
+        function Student (name,psw,age){
+            this.name = name;
+            this.psw = psw;
+            this.age = age;
+            Object.defineProperties(this,{
+                name:{writable:false,configurable:false}
+                ,psw:{configurable:false,enumerable:false}
+            })
+        }
+        Student.prototype.intro = function(){
+                    console.log(this.name);
+                    }
+
+        var lilei =new Student("lilei",123,12);
+        var han = new Student("han",123,13);
+       // delete lilei.name;
+        // Object.defineProperty(lilei,"psw",{
+        //     writable:true,configurable:true
+        // })
+        for (var key in lilei){
+            console.log(key+":"+lilei[key]);
+        }
+        
+        if(!Array.prototype.forEach1){
+            Array.prototype.forEach1 = function(callback){
+                for(i=0;i<this.length;i++){
+                    if(this[i]!==undefined){
+                    callback(this[i],i,this);
+                    }
+                }
+            }
+        }
+        if(!Array.prototype.map1){
+            Array.prototype.map1 = function(callback){
+                var result = [];
+                for(i=0;i<this.length;i++){
+                    if(this[i]!==undefined){
+                    result[i] = callback(this[i],i,this);
+                    }
+                }
+                return result;
+            }
+        }
+
+        var arr1 = [1,,3,,5];
+        console.log(arr1);
+        arr1.forEach1(
+            function(elem,i,arr){
+                arr[i] = elem*2;
+            }
+        );
+        console.log(arr1);
+        var arr2 = arr1.map1(
+            function(elem,i,arr){
+                return elem+1;
+            }
+        );
+        console.log(arr1);
+        console.log(arr2);
+    </script>
+</body>
+</html>

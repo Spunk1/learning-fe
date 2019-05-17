@@ -8,7 +8,6 @@
 		function checkUname(){
 		var xhr = createXhr();
 		var uname = $("uname").value;
-
 		var url = "homework2.php?uname="+uname;
 		xhr.open("get",url,true);
 		xhr.onreadystatechange=function(){

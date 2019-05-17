@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <script>
+        var but = document.getElementsByTagName("button");
+        // 外层函数包裹要保护的变量和内层函数
+        function good(i) {
+            // 外层函数返回内层函数
+            return function () {
+                 console.log(i+1);
+            }
+        }
+        // 调用外层函数获得内层函数对象 getnum = function(){console.log(i++)};  getnum 为一个函数
+        for(i=0; i<but.length; i++)         /* 此处循环只要被点击才调用闭包函数，同时还能找出是哪个点击的 */
+        {
+            but[i].onclick = good(i);
+        }
+        // getnum = null;       结束闭包
+    </script>
+</body>
+</html>

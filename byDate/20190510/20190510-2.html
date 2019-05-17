@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="a">赞（+0）</button>
+    <button id="b">踩（+0）</button>
+    <script>
+        // 外层函数包裹要保护的变量和内层函数
+        function good(id,msg) {
+            var i = 0 ;
+            // 外层函数返回内层函数
+            return function () {
+                ++i;
+                id.innerHTML = msg+"（+"+i+")";
+            }
+        }
+        i=1;
+        // 调用外层函数获得内层函数对象 getnum = function(){console.log(i++)};  getnum 为一个函数
+        a.onclick = good(a,"赞");
+        b.onclick = good(b, "踩");
+        // getnum = null;       结束闭包
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <button>1</button>
+    <script>
+        // function add(a,b,c){
+
+        //     console.log(this.name+":"+(a+b+c));
+        // }
+
+        // var lilei = {
+        //     name : "lilei",
+        //     a : 1000,
+        //     b : 100,
+        //     c : 50
+        // };
+        // var lilei_add = add.bind(lilei,1000,100,50);
+        // lilei_add();
+
+        // var i = 0;
+        // function a(){
+        //     i += 2;
+        //     if(true){
+        //     let i = 3;
+        //     console.log(i);
+        //     }
+        // }
+        // i += 2;
+        // a();
+        // console.log(i);
+
+        var but = document.getElementsByTagName("button");
+        function a(i){
+                return function(){
+                    console.log(i);
+                }
+            }
+        
+        for(var i=0;i<but.length;i++){
+            but[i].onclick = a(i);
+            console.log(i);
+        }
+        console.log(i);
+    </script>
+</body>
+</html>
