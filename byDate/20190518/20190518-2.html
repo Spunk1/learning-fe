@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = {name:"zhangsan",
+                    age:12};
+    
+        var param = '';
+	//这里使用stringify方法将js对象格式化为json字符串
+	if(JSON.stringify(data) != '{}'){
+		//url += '?';
+		for(var i in data){
+			param += i+'='+data[i]+'&';   //将js对象重组，拼接成url参数存入param变量中
+		}
+		//使用slice函数提取一部分字符串，这里主要是为了去除拼接的最后一个&字符
+		//slice函数：返回一个新的字符串。包括字符串从 start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符。
+		//param = param.slice(0,param.length-1);  
+    }
+
+    console.log(param);
+    </script>
+</body>
+</html>
