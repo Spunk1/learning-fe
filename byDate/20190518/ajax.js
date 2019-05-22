@@ -11,9 +11,9 @@ function ajax(method,url,data,callback,datetype){
     /* 创建/获取XHR对象 */
     var xhr ;
     if (window.XMLHttpRequest){
-        xhr = new XHLHttpRequest();
+        xhr = new XMLHttpRequest();
     }else{
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        xhr = new ActiveXObject("Microsoft.XMLHttp");
     }
 
     /* 设置xhr的 onreadystatechange 事件 */
