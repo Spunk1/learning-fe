@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function open1(){
+            window.open("https://www.baidu.com","_self");
+        }
+        function open2(){
+            location.replace("https://www.baidu.com");
+            // 用输入的网址替换当前的网址
+            // history 栈中没有网址记录 就不能返回
+            // 只能用 js实现  不能用html
+        }
+        function open3(){
+            window.open("https://www.baidu.com","_blank");
+        }
+        function open4(){
+            window.open("https://www.baidu.com","自定义的窗口名");
+        }
+    </script>
+</head>
+<body>
+    <!-- target 属性为打开窗口名，内存中只能由一个窗口名，不能重复  window.name
+    ***** 当为 _self 时，打开的新窗口使用现在的窗口名，替换了现有的
+    ***** 当为 _blank 时，打开的新窗口为随机窗口名
+    ***** 当为自定义名时，打开的新窗口后打开的会替换新打开的
+    -->
+    <a href="https://www.baidu.com" target="_self">在当前页面打开，可后退</a>
+    <a href="javascript:open1()">在当前页面打开，可后退（JS）</a>
+    <br>
+    <a href=""></a>
+    <a href="javascript:open2()">在当前页面打开，不可后退（JS）</a>
+    <br>
+    <a href="https://www.baidu.com" target="_blank">在新页面打开，可打开多个</a>
+    <a href="javascript:open3()">在新页面打开，可打开多个（JS）</a>
+    <br>
+    <a href="https://www.baidu.com" target="自定义的窗口名">在新页面打开，只打开一个</a>
+    <a href="javascript:open4()">在新页面打开，只打开一个（JS）</a>
+
+</body>
+</html>

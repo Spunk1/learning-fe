@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select name="family">
+        <option value="0">请选择</option>
+    </select>
+
+    <select name="laptop" id="">
+        <option value="">请选择</option>
+    </select>
+
+    <script src="ajax.js"></script>
+    <script>
+        var selFamily = document.querySelector("[name=family]");
+        var selLaptop = document.querySelector("[name=laptop]");
+
+        ajax("get","1.php","",function(res){
+            // console.log(res[0].fid);
+            var frag = document.createDocumentFragment();
+            for(var i=0;i<res.length;i++){
+/*                 var opt = document.createElement("option");
+                opt.value = res[i].fid;
+                opt.innerHTML = res[i].fname;
+                // console.log(opt);
+                frag.appendChild(opt); */
+
+                frag.appendChild(new Option(res[i].fname,res[i].fid));
+            }
+            selFamily.appendChild(frag);
+        },"json");
+    </script>
+</body>
+</html>
