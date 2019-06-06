@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+    <div id="slider">
+        <img src="1.jpeg" alt="1" class="show">
+        <img src="2.jpeg" alt="2">
+        <img src="3.jpeg" alt="3">
+    </div>
+
+    <script>
+        // function next() {
+        //     var div = document.getElementById("slider");
+        //     var showimg = document.querySelector("div>img.show");
+
+        //     if(div.lastElementChild.className != "show"){
+        //         showimg.nextElementSibling.className = "show";
+        //         showimg.className = "";
+        //     }else{
+        //         div.firstElementChild.className = "show";
+        //         showimg.className = "";
+        //     }
+        // }
+        
+        function next() {
+            var showimg = document.querySelector("#slider img.show");
+                showimg.className = "";
+            if(showimg.nextElementSibling){
+                showimg.nextElementSibling.className = "show";
+            }else{
+                document.querySelector("#slider img:first-child").className = "show";
+            }
+        }
+
+        // 设置定时器
+        var timer = setInterval(next,3000);
+        var div = document.getElementById("slider");
+        div.onmouseover = function(){
+            clearInterval(timer);
+            timer = null;
+        }
+        div.onmouseout = function(){
+            timer = setInterval(next,3000);
+        }
+
+        var imgs = document.querySelectorAll("#slider img");
+        // var imgs = div.children;
+        for(var img of imgs){
+            img.onclick = function(){
+                console.log(this.alt);
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #btn-group{
+            list-style: none;
+        }
+        #btn-group>li{
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 40px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>实现按钮组效果</h1>
+    <ul id="btn-group">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <script src="../../../jquery/jq1.11.3/jquery-1.11.3.js"></script>
+    <script>
+        $("#btn-group>li:first").css("border-radius","8px 0 0 8px");
+        $("#btn-group>li:last").css("border-radius","0 8px 8px 0");
+        $("#btn-group>li:gt(0)").css("border-left","0");
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">click(0)</button>
+    <button id="btn2">click(0)</button>
+    <button id="btn3">click(0)</button>
+    <script src="../../../jquery/jq1.11.3/jquery-1.11.3.js"></script>
+    <script>
+        var $btns = $("button");
+        $btns.click(function(){
+            var $btn = $(this);         /* this为DOM对象  将DOM对象转换为jquery对象 */
+            var html = parseInt($btn.html().slice(6,-1));
+            $btn.html("click("+(html+1)+")");
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../../../jquery/jq3.4.1/jquery-3.4.1.js"></script>
+    <script>
+/*         $.get("http://localhost/learning-fe/byDate/20190605/1.php")
+ */        function hander (json){
+            $("body").prepend("<h1>"+json+"</h1>");
+        }
+        $("body").append("<script src='http://localhost/learning-fe/byDate/20190605/跨域操作/1.php?callback=hander'><\/script>");
+    </script>
+</body>
+</html>

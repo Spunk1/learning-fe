@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 700px;
+            border: 1px solid red;
+            text-align: center;
+        }
+        ul{
+            display: none;
+            list-style: none;
+            width: 50px;
+            height: 300px;
+            position: fixed;
+            top:50%;
+            left: 0;
+        }
+        .show{
+            display: block;
+        }
+        li{
+            height: 50px;
+            background-color: #ccc;
+            /* border: 1px solid red; */
+            border-bottom: 1px solid #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 50px;
+        }
+        /* li:last-child{
+            border-bottom: 1px solid red;
+        } */
+        a{
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #fff;
+            display: inline-block;
+        }
+        li:hover,.li_on{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="f1" class="a" style="background-color: red">1111</div>
+    <div id="f2" class="a" style="background-color: gold">2222</div>
+    <div id="f3" class="a" style="background-color: green">3333</div>
+    <div id="f4" class="a" style="background-color: saddlebrown">4444</div>
+    <div id="f5" class="a" style="background-color: rosybrown">5555</div>
+    <div id="f6" class="a" style="background-color: aqua">6666</div>
+        <ul id="ul" class="">
+            <li id="li1"><a href="javascript:void(0);">1</a></li>
+            <li id="li2"><a href="javascript:void(0);">2</a></li>
+            <li id="li3"><a href="javascript:void(0);">3</a></li>
+            <li id="li4"><a href="javascript:void(0);">4</a></li>
+            <li id="li5"><a href="javascript:void(0);">5</a></li>
+            <li id="li6"><a href="javascript:void(0);">6</a></li>
+        </ul>
+
+    <script src="../../../jquery/jq1.11.3/jquery-1.11.3.js"></script>
+    <script>
+        var ul = document.getElementById("ul");
+        var div = document.getElementsByClassName("a");
+        var div2 = document.getElementById("f2");
+        function getTotalTop(elem){
+                    var sum = 0;
+                    do{
+                        sum += elem.offsetTop;
+                        elem = elem.offsetParent;
+                    }while(elem);
+                    return sum;
+                }
+
+
+        var div2totop = getTotalTop(div2);
+
+        window.addEventListener("scroll",function(){
+            var scrolltop = document.body.scrollTop||document.documentElement.scrollTop;
+
+            if(/* ((innerHeight/2) + scrolltop)>=div2totop */
+                (div2totop-scrolltop) <= innerHeight/2){
+                // ul.className = "show";
+                ul.style.display = "block";
+            }else{
+                ul.style.display = "none";
+                // ul.className = "";
+            }
+        });
+
+        var as = document.querySelectorAll("ul>li>a");
+         for(let i=0;i<as.length;i++){
+             as[i].onclick=function(){
+                var fi = document.getElementById("f"+(i+1));
+                var fi2top = getTotalTop(fi);
+                /* 让window滚动到第几行 */
+                // window.scrollTo(0,fi2top-70);            直接跳转 需要添加动画
+                 $("html,body").stop(true)          /* 链式操作 添加动画时 先将队列中的动画移除 */
+                                .animate({scrollTop:fi2top-70},500);      /* 使用jq增加跳转动画 */
+             }
+         }
+
+         window.addEventListener("scroll",function(){
+            var scrolltop = document.body.scrollTop||document.documentElement.scrollTop;
+            for (let i=0;i<div.length;i++){
+                var divtotop = getTotalTop(div[i]);
+                var li = document.getElementById("li"+(i+1));
+                if(divtotop-scrolltop <=innerHeight/2 && divtotop-scrolltop>=(innerHeight/2-700)){
+                    li.className = "li_on";
+                }else{
+                    li.className = "";
+                }
+                
+            }
+         });
+        
+    </script>
+</body>
+</html>

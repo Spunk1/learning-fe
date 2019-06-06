@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <div id="msg">
+            <a href="#">X</a>
+    </div>
+    
+    <script>
+        var div = document.getElementById("msg");
+
+        window.onload = function(){
+            div.style.bottom = "0px";
+        }
+        var timer = null;
+        div.firstElementChild.onclick = function(){
+            if(timer == null){       /* 设置timer的值为null（即 当前五正在运行的定时器）时才执行点击操作 */
+                div.style.bottom = "-200px";
+                timer = setTimeout(function(){div.style.bottom = "0px";
+                                                timer=null;},3000);
+            }
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../jquery/jquery-ui-1.11.4/jquery-ui-1.11.4/jquery-ui.css">
+    <style>
+        input.error{
+            box-shadow: 0 0 10px red;
+        }
+        label.error{
+            background-color: blue;
+            color: red;
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: 25px 25px;
+            padding-left: 25px;
+            margin-left: 10px;
+            font-style: italic;
+        }
+        div.error{
+            box-shadow: 0 0 10px red;
+            display: block;
+        }
+        div.error>label.error{
+            display: block;
+            margin-left: 1em;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" method="post" action="submit.php">
+        <p>
+            <label>用户名：
+                <input id="uname" name="uname">(必填，两个以上字符)
+            </label>
+        </p>
+        <p>
+            <label>密码：
+                <input id="upwd1" name="upwd1" type="password">(必填，6~8位字符)
+            </label>
+        </p>
+        <p>
+            <label>电子邮件：
+                <input id="email" name="email">(必填，6~8位字符)
+            </label>
+        </p>
+        <p>
+            <label>生日
+                <input id="upwd1" name="upwd1">(必填，6~8位字符)
+            </label>
+        </p>
+        <p>
+            <label>个人主页
+                <input id="upwd1" name="upwd1">(必填，6~8位字符)
+            </label>
+        </p>
+        <p>
+            <label>
+                <input id="upwd1" name="upwd1">(必填，6~8位字符)
+            </label>
+        </p>
+        <p>
+            <label>
+                <input id="upwd1" name="upwd1">(必填，6~8位字符)
+            </label>
+        </p>
+        <fieldset>
+            <label>
+                <input type="checkbox" value="旅游" name="topic">旅游
+            </label>
+            <label>
+                <input type="checkbox" value="体育" name="topic">体育
+            </label>
+            <label>
+                <input type="checkbox" value="娱乐" name="topic">娱乐
+            </label>
+            <label for="topic" class="error" style="display: none"></label>
+        </fieldset>
+        <p>
+            <label for=""><input type="checkbox" name="agree">同意</label>
+        </p>
+        <div class="error">请按以下规则修改表单</div>
+    </form>
+
+    <script src="../../jquery/jq3.4.1/jquery-3.4.1.js"></script>
+</body>
+</html>  

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 0 auto;
+            width: 900px;
+            height: 506px;
+            background-color: black;
+            text-align: center;
+            position: relative;
+        }
+        .img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -32px;
+            margin-top: -32px;
+        }
+        .hiddren{
+            display: none;
+        }
+        #ad{
+            position: absolute;
+            
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <video id="v2">
+            <source src="res/birds.mp4">
+        </video>
+        <img id="ad" src="res/2.jpg">
+        <a href="#"><img class="img" src="res/pause.png"></a>
+        <a href="#"><img class="img" src="res/play.png"></a>
+    </div>
+    <script>
+        var video = document.getElementById("v2");
+        var imgs = document.querySelectorAll("a>img");
+        var as = document.getElementsByTagName("a");
+        var ad = document.getElementById("ad");
+        document.getElementsByTagName("div")[0].addEventListener("mouseenter",mouse_in);
+        document.getElementsByTagName("div")[0].addEventListener("mouseleave",mouse_out);
+
+        function mouse_in(){
+            if(video.paused){
+                imgs[0].classList.add("hiddren");
+                imgs[1].classList.remove("hiddren");
+            }else{
+                imgs[1].classList.add("hiddren");
+                imgs[0].classList.remove("hiddren");
+            }
+        }
+
+        function mouse_out(){
+            if(video.paused){
+                imgs[0].classList.add("hiddren");
+                imgs[1].classList.remove("hiddren");
+            }else{
+                imgs[0].classList.add("hiddren");
+                imgs[1].classList.add("hiddren");
+            }
+        }
+
+        for(a of as){
+            a.onclick = function(e){
+            e.preventDefault()
+            if(video.paused){
+                console.log(1);
+                video.play();
+                document.getElementById("ad").classList.add("hiddren");
+                imgs[1].classList.add("hiddren");
+                imgs[0].classList.remove("hiddren");
+            }else{
+                video.pause();
+                document.getElementById("ad").classList.remove("hiddren");
+                imgs[0].classList.add("hiddren");
+                imgs[1].classList.remove("hiddren");
+            }
+        }
+        }
+
+    </script>
+</body>
+</html>

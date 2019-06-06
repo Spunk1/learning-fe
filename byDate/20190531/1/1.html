@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+        <li>666</li>
+        <li>777</li>
+        <li>888</li>
+        <li>666</li>
+        <li>777</li>
+        <li>888</li>
+        <li>666</li>
+        <li>777</li>
+        <li>999</li>
+    </ul>
+    <button data-toggle="brandlist">精简显示</button>
+
+    <script src="../../../jquery/jq1.11.3/jquery-1.11.3.js"></script>
+    <script>
+        var $btn = $("[data-toggle=brandlist]");
+        $btn.click(function(){
+            if($btn.html()=="精简显示"){
+                $("ul>li:gt(4):not(:last)").hide();
+                $btn.html("详细显示");
+            }else{
+                $("ul>li").show();
+                $btn.html("精简显示");
+            }
+        });
+    </script>
+</body>
+</html>

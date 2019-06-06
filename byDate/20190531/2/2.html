@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>98</li>
+        <li>85</li>
+        <li>33</li>
+        <li>99</li>
+        <li>52</li>
+    </ul>
+
+    <script src="../../../jquery/jq1.11.3/jquery-1.11.3.js"></script>
+    <script>
+/*         $("#list>li").each(function(i,elem){ 
+            var $tar = $(elem);
+            if($tar.html()<60){
+                $tar.html(parseInt($tar.html())+10);
+            }else if($tar.html()>90){
+                $tar.css({backgroundColor : "green"});
+            }
+
+        }); */
+
+        $("#list").on("click","li",function(){
+            var $li = $(this);
+            var i = $li.index();
+            console.log($("li:gt("+i+")"));
+            $("li:lt("+i+1+")").css({background: "red"});
+            $("li:gt("+i+")").css({background: ""});
+        });
+    
+    </script>
+</body>
+</html>
