@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <svg id="s2" width="500" height="400">
+        <rect id="r2" width="30" height="300" x="235" y="50" fill="#faa" fill-opacity="0.3" stroke="#800" stroke-opacity="0.3"></rect>
+    </svg>
+
+    <script>
+        var r2 =document.getElementById("r2");
+        r2.onmouseenter = function(){
+            this.setAttribute("fill-opacity",1);
+            this.setAttribute("stroke-opacity",1);
+            this.setAttribute("height",400);
+        }
+        
+        r2.onmouseleave = function(){
+            this.setAttribute("fill-opacity",0.3);
+            this.setAttribute("stroke-opacity",0.3);
+            this.setAttribute("height",300);
+        }
+    </script>
+</body>
+</html>

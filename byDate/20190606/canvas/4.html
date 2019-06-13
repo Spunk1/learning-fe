@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="400" id="c"></canvas>
+    <script src="../../../jquery/jq3.4.1/jquery-3.4.1.js"></script>
+    <script>
+        var c=document.getElementById("c");
+        var ctx = c.getContext("2d");
+        var hei;
+        $.ajax({
+            type: "get",
+            url: "4.php",
+            /* dataType: json, */
+            success: function(data){
+                /* var msg = JSON.parse(data); */
+                for(var i=0;i<data.length;i++){
+                    var msg = data[i];
+                    hei = data[i].value;
+                    ctx.fillRect(50+i*100,400-hei,50,hei);
+                    ctx.fillStyle = 'red';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #trash{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100px;
+            opacity: 0.5;
+        }
+        #planes>img{
+            visibility: visible;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>拖动事件</h1>
+    <div id="trash"><img src="2.jpg" width="100" height="100"></div>
+    <hr>
+    <div id="planes">
+        <img src="p3.png" alt="" id="p3">
+        <img src="p4.png" alt="" id="p4">
+        <img src="p5.png" alt="" id="p5">
+    </div>
+    <hr>
+    <script type="text/javascript">
+        var mubiao ;
+        var imgs = document.querySelectorAll("#planes>img");
+        console.log(imgs);
+        /* var planes = document.getElementById("planes"); */
+        for(var img of imgs){
+            console.log(img);
+            img.ondragstart = function(){
+            mubiao = this;
+            }
+
+            img.ondrag = function(){
+                this.style.visibility = "hidden";
+            }
+            img.ondragend = function(){
+                this.style.visibility = "visible";
+            }
+        }
+
+        trash.ondragenter = function(){
+            this.style.opacity = 1;
+        }
+
+        /* 悬停在目标对象上方 */
+        trash.ondragover = function(e){
+            e.preventDefault();
+            console.log("over");
+        }
+        /* 拖动离开 */
+        trash.ondragleave = function(){
+            console.log("leave");
+            this.style.opacity = 0.5;
+        }
+        /* 在目标对象上方释放 */
+        trash.ondrop = function(){
+            planes.removeChild(mubiao);
+            this.style.opacity = 0.5;
+        }
+    </script>
+</body>
+</html>

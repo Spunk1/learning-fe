@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>1111111111</button>
+<!--     <script src="1.js"></script> -->
+    <script>
+        var worker = new Worker("1.js");
+        worker.onmessage = function(e){
+            p1.innerHTML = e.data;
+        };
+    </script>
+    <button>22222222222222</button>
+    <P id="p1"></P>
+</body>
+</html>

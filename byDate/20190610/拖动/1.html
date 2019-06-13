@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>拖动事件</h1>
+    <div id="trash">垃圾桶</div>
+    <hr>
+    <img src="p3.png" alt="" id="p3">
+    <hr>
+    <script type="text/javascript">
+        // /* 源对象拖动开始 */
+        // p3.ondragstart = function(){
+        //     console.log(1);
+        // }
+        // /* 源对象拖动中 */
+        // p3.ondrag = function(){
+        //     console.log(2);
+        // }
+        // /* 源对象拖动结束 */
+        // p3.ondragend = function(){
+        //     console.log(3);
+        // }
+
+        /* 拖动进入目标对象 */
+        trash.ondragenter = function(){
+            console.log("enter");
+        }
+
+        /* 悬停在目标对象上方 */
+        trash.ondragover = function(e){
+            e.preventDefault();
+            console.log("over");
+        }
+        /* 拖动离开 */
+        trash.ondragleave = function(){
+            console.log("leave");
+        }
+        /* 在目标对象上方释放 */
+        trash.ondrop = function(){
+            console.log("drop");
+        }
+    </script>
+</body>
+</html>

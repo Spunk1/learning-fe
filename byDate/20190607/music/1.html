@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c2" width="400" height="500"></canvas>
+
+    <script>
+        var c2 = document.getElementById("c2");
+        var ctx = c2.getContext("2d");
+        var img = new Image();
+        img.src = "img/bg.jpg";
+        img.onload = function(){
+            ctx.drawImage(img,0,0);
+            ctx.beginPath();
+           /*  ctx.moveTo(200,); */
+           ctx.arc(200,200,80,0,2*Math.PI);
+           ctx.fill();
+        }
+
+        var img1 = new Image();
+        img1.src = "img/disc.png";
+        img1.onload = function(){
+            ctx.drawImage(img1,150,150);
+        }
+
+        var state = 0;
+/*         var img2 = new Image();
+        img2.src = "img/play.png";
+        img2.onload = function(){
+            if(state==0){
+                ctx.drawImage(img2,150,350,100,100);
+            }
+        }
+
+        var img3 = new Image();
+        img3.src = "img/pause.png";
+        img3.onload = function(){
+            if(state==1){
+                ctx.drawImage(img3,150,350,100,100);
+            }
+        } */
+
+        c2.onclick = function(e){
+            if(e.offsetX>150&&e.offsetX<250&&e.offsetY>350&&e.offsetY<450){
+                console.log(state+"qian");
+                if(state==0){
+                    state=1;
+                }else{
+                    state=0;
+                }
+                console.log(state+"hou");
+
+                var img2 = new Image();
+                img2.src = "img/play.png";
+                img2.onload = function(){
+                    console.log("daying1");
+                    if(state==0){
+                        console.log("daying1");
+                        ctx.drawImage(img2,150,350,100,100);
+                    }
+                };
+                var img3 = new Image();
+                img3.src = "img/pause.png";
+                img3.onload = function(){
+                    if(state==1){
+                        console.log("daying2");
+                        ctx.drawImage(img3,150,350,100,100);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

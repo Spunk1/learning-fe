@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>h5 svg</h1>
+    <canvas id="c2" width="120" height="50">
+
+    </canvas>
+    <script>
+        /* var str = [1,2,3,4,5,6,7,8,9,0,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z]; */
+        function suiji(min,max){
+            var n = Math.random() * (max-min) +min;
+            return Math.floor(n);
+        }
+
+        function cor(min,max){
+            var r = suiji(min,max);
+            var g = suiji(min,max);
+            var b = suiji(min,max);
+            return `rgb(${r},${g},${b})`;
+        }
+
+        var c2 = document.getElementById("c2");
+        var ctx = c2.getContext("2d");
+        var w = 120;
+        var h =50;
+        ctx.fillStyle = cor(180,230);
+        ctx.fillRect(0,0,w,h);
+        var str = "1234567890abcdefghijklmnopqrstuvwxyz";
+
+        for(var i=0;i<4;i++){
+            var c = str[suiji(0,str.length)];
+            /* console.log(c); */
+            var fs = suiji(18,40);
+            var deg = suiji(-45,45);
+            ctx.font = fs+"px SimHei";
+            ctx.fillStyle = cor(80,180);
+            ctx.textBaseline = "top";
+            ctx.save();
+            ctx.translate(30*i+15,15);
+            ctx.rotate(deg*Math.PI/180);
+            ctx.fillText(c,-15+5,-15);
+            ctx.restore();
+        }
+        for(var i=1;i<7;i++){
+            ctx.strokeStyle = cor(0,255);
+            ctx.beginPath();
+            ctx.moveTo(suiji(0,w),suiji(0,h));
+            ctx.lineTo(suiji(0,w),suiji(0,h));
+            ctx.stroke();
+        }
+        for(var i=1;i<100;i++){
+            ctx.fillStyle = cor(0,255);
+            ctx.beginPath();
+/*             ctx.moveTo(suiji(0,w),suiji(0,h)); */
+            ctx.arc(suiji(0,w),suiji(0,h),1,0,Math.PI*2);
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

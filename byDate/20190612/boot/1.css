@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #fff;
+    font-size: 1em;
+}
+
+/* 从最外层向里修饰 */
+/* 定宽容器，一般用于布局外层 */
+.container{margin: 0 auto;}
+.container::before{content:""; display: block; clear: both;}
+.container::after{content:""; display: block; clear: both;}
+
+/* 变宽的容器 一般用于容器中的子容器 */
+.left,.middle,.right{float: left;}
+.container-fluid{width: 100%}
+.myimg{float: left;padding: 10px 5px;}
+
+/* 针对PC屏幕的 */
+@media screen and (min-width: 992px){
+    .container{width: 970px;color: red}
+    .left,.right{width: 20%}
+    .middle{width: 60%}
+    .myimg{width: 25%}
+}
+
+/* 针对PAD屏幕的 */
+@media screen and (min-width: 768px) and (max-width: 992px){
+    .container{width: 750px;color: green}
+    .left{width: 25%}
+    .middle{width: 75%}
+    .right{display: none}
+    .myimg{width: 25%}
+}
+
+/* 针对smartphone */
+@media screen and (max-width: 767px){
+    .container{width: 100%;color: blue}
+    .left{width: 100%}
+    .middle{width: 100%}
+    .right{display: none}
+    .myimg{width: 50%}
+}

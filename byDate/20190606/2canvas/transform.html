@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c2" width="500" height="400"></canvas>
+    <script>
+        var c2 = document.getElementById("c2");
+        var ctx = c2.getContext("2d");
+        var p3  = new Image();
+        var deg = 15;
+        var deg2= 30;
+        p3.src = "img/p3.png";
+        p3.onload = function(){
+            var timer = setInterval(function(){
+            ctx.save();
+            ctx.translate(100,50);
+            ctx.rotate(deg*Math.PI/180);
+            ctx.drawImage(p3,-100,-50);
+/*             ctx.rotate(-deg*Math.PI/180);
+            ctx.translate(-100,-50); */
+            ctx.restore();
+            deg+=15;
+            
+            ctx.save();
+            ctx.translate(400,50);
+            ctx.rotate(deg2*Math.PI/180);
+            ctx.drawImage(p3,-100,-50);
+/*             ctx.rotate(-deg2*Math.PI/180);
+            ctx.translate(-400,-50); */
+            ctx.restore();
+            deg2+=30;
+            },200);
+        }
+
+
+    </script>
+</body>
+</html>

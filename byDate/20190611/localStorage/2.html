@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .blue{
+                background-color: #ccf;
+                color: #339;
+            }
+            .pink{
+                background-color: #f3b;
+                color: #916;
+            }
+            .dark{
+                background-color: #111;
+                color: #eee;
+            }
+            </style>
+</head>
+<body>
+    <script>
+        /* document.body.classList.remove("blue","pink","dark");
+        document.body.classList.add(localStorage['zt']); */
+        document.body.className = localStorage['zt'];
+        /* 监听localStorage数据的改变 */
+        window.onstorage = function(){
+            document.body.className = localStorage['zt'];
+        }
+    </script>
+</body>
+</html>

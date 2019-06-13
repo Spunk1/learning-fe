@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>音频播放</h1>
+    <hr>
+    <audio controls src="../../20190605/H5_video/res/bg.mp3" id="bgm"></audio>
+    <br>
+    <label>
+            <input id="bg" type="checkbox">播放音乐
+    </label>
+    <script>
+        var bg = document.getElementById("bg");
+        var bgm = document.getElementById("bgm");
+/*         bg.onchange = function(){
+            if(this.checked){
+                bgm.play();
+            }else{
+                bgm.pause();
+            }
+        } */
+
+        // 音量渐渐变大
+        bg.onchange = function(){
+            if(this.checked){
+                bgm.volume = 0;
+                bgm.play();
+                var timer = setInterval(function(){
+                    bgm.volume += 0.1;
+                    if(bgm.volume>0.9){
+                        clearInterval(timer);
+                    }
+                },500);
+            }else{
+                bgm.pause();
+            }
+        }
+    </script>
+</body>
+</html>

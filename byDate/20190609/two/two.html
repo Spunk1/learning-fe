@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        svg{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>two</h1>
+    <div id="box"></div>
+    <script src="two.js"></script>
+    <script>
+    // 1.创建two对象,指定画布宽度,canvas/svg
+    var two = new Two({
+        width:800,
+        height:400,
+        type: Two.Types.svg
+    }).appendTo(box);
+    // 2.绘制矩形圆形
+    var c= two.makeCircle(200,200,100);
+    var r = two.makeRectangle(600,200,200,100);
+    r.rotation = 60*Math.PI/180;
+    // 3.把绘制的图形更新到DOM树
+    two.update();
+    </script>
+</body>
+</html>

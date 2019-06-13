@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #login{
+            width: 500px;
+            height: 300px;
+            margin: 200px auto;
+            text-align: center;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <span>账户名：</span>
+        <input type="text" id="uname"><br>
+        <span> 密码：</span>
+        <input type="password" id="upwd"><br>
+        <button id="btn">登录</button>
+    </div>
+
+    <script>
+        var uname = document.getElementById("uname");
+        var upwd = document.getElementById("upwd");
+        var btn = document.getElementById("btn");
+        console.log(uname.value);
+        btn.onclick = function(){
+            if(uname.value!=""&&upwd.value!=""){
+                sessionStorage.setItem('uname',uname.value);
+                sessionStorage.setItem('upwd',upwd.value);
+                var timer = setInterval(function(){location.href = "index.html";},3000);
+            }else{
+                alert("不能空");
+            }
+        }
+
+    </script>
+</body>
+</html>
