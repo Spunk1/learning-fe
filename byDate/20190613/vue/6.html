@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>vue v-for</h3>
+    <div id="app">
+        <!-- view -->
+        <ul>
+            <li>{{myList[0]}}</li>
+            <li>{{myList[1]}}</li>
+            <li>{{myList[2]}}</li>
+            <li>{{myList[3]}}</li>
+            <li>{{myList[4]}}</li>
+        </ul>
+        <hr>
+        <!-- v-for -->
+        <ul>
+            <li v-for="item in myList">{{item}}</li>
+        </ul>
+
+        <hr>
+        <ul>
+            <li v-for="(value,key) in myList">{{key}}:{{value}}</li>
+        </ul>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        /* 数据 */
+        var exampleData = {
+            myList: [101,102,103,104,105]
+        };
+
+        /* vue */
+        new Vue({
+            el: "#app",
+            data: exampleData
+        });
+    </script>
+</body>
+</html>

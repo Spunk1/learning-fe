@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>自定义指令</h3>
+    <hr>
+    <div id="app">
+        <h4>{{msg}}</h4>
+        <h4>{{msg|transformCaps('false')}}</h4>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            msg: "Hello",
+            price: 356,
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+
+            filters:{       /* 所有的过滤器都放在此对象中 */
+                transformCaps:function(myInput,arg1){      /* 自定义的过滤器 */
+                    /* myinput:msg 绑定的变量的值 */
+                    /* arg1：''传入的参数 */
+                    var afmsg = "";
+                    if(arg1=="true"){
+                        afmsg = myInput.toUpperCase();
+                        return afmsg
+                    }else if(arg1=="false"){
+                        afmsg = myInput.toLowerCase();
+                        return afmsg
+                    }
+                    return "参数错误！！"
+                }
+            },
+        });
+    </script>
+</body>
+</html>

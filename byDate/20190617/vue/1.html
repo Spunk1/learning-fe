@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>自定义指令</h3>
+    <hr>
+    <div id="app">
+        {{count}}
+        <button @click="pluseCount">click</button>
+        <hr>
+        <hr>
+        <h3 v-change="count" v-if="count<6">自定指令</h3>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            msg: "hello",
+            count: 0,
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+
+            methods: {
+                pluseCount:function(){
+                    this.count++;
+                },
+            },
+
+            directives:{        /* 所有的自定义指令都保存在此对象中 */
+                change:{        /* 自定义的change指令 */
+                    bind:function(el,bindings){
+                        console.log(el);
+                        console.log(bindings);
+                        console.log("初始化指令");
+                    },
+                    update:function(el,bindings){
+                        console.log("数据发生变化");
+                    },
+                    unbind:function(el,bindings){
+                        console.log("解除绑定");
+                    },
+                }
+            },
+        });
+    </script>
+</body>
+</html>

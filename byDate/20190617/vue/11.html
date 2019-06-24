@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <test></test>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("test", {
+            template: `<div>
+                        <span>{{uname}}</span><br>
+                        <ul v-show="hid">
+                            <li v-for="list in lists">{{list}}</li>
+                        </ul><br>
+                        <button @click="change">123</button>
+                        </div>`,
+            data: function(){return {uname:"zhazha",lists:[1,23,4,5,6],hid:true}},
+            methods: {
+                change: function(){this.hid = !this.hid;}
+            },
+
+        });
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>

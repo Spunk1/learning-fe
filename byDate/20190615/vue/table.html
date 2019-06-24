@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{list-style: none;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <label for="">姓名</label>
+            <input type="text" v-model="newUser.uname"><br>
+            <label for="">年龄</label>
+            <input type="text" v-model="newUser.uage"><br>
+            <label for="">电话</label>
+            <input type="text" v-model="newUser.utel"><br>
+            <!-- <input type="button" value="[add]" @click="addUser"> -->
+            <button @click.prevent="addUser">[add]</button>
+        </form>
+
+        <table border="1" width="60%" style="text-align: center">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(data,idx) in users">
+                    <td>{{data.uname}}</td>
+                    <td>{{data.uage}}</td>
+                    <td>{{data.utel}}</td>
+                    <td @click="deleteData(idx)">X</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            newUser:{uname:"",uage:"",utel:""},
+            users:[{uname:"1",uage:"2",utel:"3"}],
+        };
+
+        var app = new Vue({
+            el:"#app",
+            data: exampleData,
+            methods: {
+                deleteData:function(idx){
+                    this.users.splice(idx,1);
+                },
+                addUser:function(){
+                    this.users.push(this.newUser);
+                    this.newUser={uname:"",uage:"",utel:""};
+                    console.log(1);
+                },
+            },
+        })
+    </script>
+</body>
+</html>

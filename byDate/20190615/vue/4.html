@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <br>
+        <button v-on:click="say">11</button>
+        <button @click="say">简写</button>
+        <button @click="run('vvvvv')">333</button>
+
+        <hr>
+        <input type="button" @click="clickMe" value="333">
+        <hr>
+        <input type="button" @click.stop="clickMe" value="444">
+        <hr>
+        <input type="text" @keydown.enter="clickMe">
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            message:"hello"
+        };
+
+        var app = new Vue({
+            el:"#app",
+            data: exampleData,
+            methods: {
+                say:function(){
+                    console.log(this.message);
+                },
+                clickMe:function(){
+                    alert(this.message);
+                },
+                run:function(msg){
+                    this.message = msg;
+                },
+            },
+        })
+    </script>
+</body>
+</html>

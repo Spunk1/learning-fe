@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="app">
+        <mymain></mymain>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        /* 创建公共组件 */
+        Vue.component("mymain", {
+            template: `
+                <div>
+                <button @click="addCount" v-bind:disabled="isValid">ClickMe</button>
+                <son :sentData="count" @dataEvent="getData"></son>
+                </div>
+            `,
+            data: function(){return {count: 0,isValid:false}},
+            methods: {
+                addCount: function(){this.count++},
+                getData: function(resValue){
+                    this.isValid = resValue;
+                },
+            },
+        });
+
+        Vue.component("son", {
+            template: `
+                <p>{{sentData}}</p>
+            `,
+            props:["sentData"],
+            updated: function(){
+/*                 if(this.sentData>10){
+                    this.$emit("dataEvent",true);
+                }else{
+                    this.$emit("dataEvent",false);
+                } */
+                if(this.sentData>10){
+                    this.$parent.isValid = true;
+                }
+            }
+        });
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>

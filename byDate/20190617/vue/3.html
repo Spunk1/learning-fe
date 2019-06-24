@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>自定义指令</h3>
+    <hr>
+    <div id="app">
+        <h4>{{price}}</h4>
+        <h4>{{price|myCurrency('￥')}}</h4>
+        <h4>{{price|myCurrency('$')}}</h4>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            msg: "hello",
+            price: 356,
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+
+            methods: {
+                pluseCount:function(){
+                    this.count++;
+                },
+            },
+
+            directives:{        /* 所有的自定义指令都保存在此对象中 */
+                changeBackgroundColor:{        /* 自定义的change指令 */
+                    bind:function(el,bindings){
+                        el.style.backgroundColor=bindings.value;
+                    },
+                    update:function(el,bindings){
+                        el.style.backgroundColor=bindings.value;
+                    },
+                    unbind:function(el,bindings){
+                        console.log("解除绑定");
+                    },
+                }
+            },
+
+            filters:{       /* 所有的过滤器都放在此对象中 */
+                myCurrency:function(myInput,arg1){      /* 自定义的过滤器 */
+                    /* myinput:price 绑定的变量的值 */
+                    /* arg1：'￥'传入的参数 */
+                    var result = arg1+myInput;
+                    return result;
+                }
+            },
+        });
+    </script>
+</body>
+</html>

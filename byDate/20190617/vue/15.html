@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("parent",{
+            methods: {
+            },
+            template: `
+                <div>
+                    <h4>父组件</h4>
+                    <child ref="sons"></child>
+                    <ul>
+                        <li v-for="item in nameList">{{item}}</li>
+                    </ul>
+                </div>
+            `,
+            data: function(){return {nameList: []}},
+        });
+
+        Vue.component("child",{
+            template: `
+                <div>
+                <input v-model="actData"></input>
+                <button @click="addData">添加</button>
+                </div>
+            `,
+            data: function(){return {actData: ""}},
+            methods: {
+                addData: function(){
+                    this.$parent.nameList.push(this.actData);
+                    this.actData = "";
+                }
+            },
+        });
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>

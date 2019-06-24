@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul>li{
+            display: inline-block;
+            padding: 5px;
+            margin-left: 10px;
+            background-color: #ccc;
+        }
+        .active{color: red}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul class="page" >
+            <li v-for="n in pageCount">
+                <a href="#" v-bind:class="activeNum==n?'active':''">{{n}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            pageCount:10,
+            activeNum:3
+        };
+
+        var app = new Vue({
+            el:"#app",
+            data: exampleData,
+        })
+    </script>
+</body>
+</html>

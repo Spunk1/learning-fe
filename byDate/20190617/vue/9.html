@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>组件生命周期</h3>
+    <hr>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("my-component", {
+            template:`
+                <h1 v-bind:style="{opacity:opacityValue}">123123123123</h1>
+            `,
+            data: function(){return {opacityValue:0};},
+            mounted: function(){
+                var vm = this;
+                var timer = setInterval(function(){
+                    console.log(vm.opacityValue);
+                    if(vm.opacityValue<0.99){
+                        vm.opacityValue+=0.1;
+                    }else{
+                        clearInterval(timer);
+                    }
+                },1000);
+            },
+        });
+
+
+        var exampleData = {
+            msg: "Hello",
+            isShow: true
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+            methods: {
+                mychange: function(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    </script>
+</body> 
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>组件生命周期</h3>
+    <hr>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("my-component", {
+            template:`
+                <div>
+                    <input type="text" v-model="inputNum"></input>
+                    <p>{{msg}}</p>
+                </div>
+            `,
+            beforeMount: function(){
+                this.aimNum = Math.floor(Math.random()*100);
+            },
+            data: function(){return {inputNum:0,aimNum:0,msg:"请输入"};},
+            watch: {
+                inputNum:function(){
+                    if(this.inputNum>this.aimNum){
+                        this.msg = "大";
+                    }else if(this.inputNum<this.aimNum){
+                        this.msg = "小";
+                    }else if(this.inputNum==this.aimNum){
+                        this.msg = "good";
+                    }
+                }
+            },
+        });
+
+
+        var exampleData = {
+            msg: "Hello",
+            isShow: true
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+            methods: {
+                mychange: function(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    </script>
+</body> 
+</html>

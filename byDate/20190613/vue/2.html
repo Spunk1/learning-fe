@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>vue 大花括号</h3>
+    <div id="app">
+        <h4>{{message}}</h4>
+        <!-- 在双花括号中 可以进行运算 -->
+        <h4>{{3+3}}</h4>
+        <!-- 获取数据对象中的属性 -->
+        <h4>{{car.brand}}</h4>
+        <!-- 三目运算 -->
+        <h4>{{count>totalNum?"success":"error"}}</h4>
+        <!-- 布尔值 -->
+        <h4>{{hasMore}}:{{!hasMore}}</h4>
+        <!-- 字符串 -->
+        <h4>{{html}}</h4>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            message: "hello vue",
+            count: 3,
+            html: "<h6>6666666666666</h6>",
+            totalNum: 10,
+            hasMore: true,
+            car: {
+                brand: "volvo",
+                price: 30
+            }
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData
+        });
+    </script>
+</body>
+</html>

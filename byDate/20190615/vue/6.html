@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{list-style: none;}
+        ul>li{
+            padding: 5px;
+            margin: 20px;
+            background-color: aqua;
+            float: left;
+        }
+        a{text-decoration: none;}
+        .active{color:red;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li><a href="#" @click="uppage">上一页</a></li>
+            <li v-for="n in pageCount">
+                <a href="#" v-bind:class="activeNum==n?'active':''">{{n}}</a>
+            </li>
+            <li><a href="#" @click="nextpage">下一页</a></li>
+        </ul>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            pageCount:10,
+            activeNum:1
+        };
+
+        var app = new Vue({
+            el:"#app",
+            data: exampleData,
+            methods: {
+                nextpage:function(){
+                    if(this.activeNum<this.pageCount){
+                        this.activeNum++;
+                        console.log(this.activeNum);
+                    }
+                },
+                uppage:function(){
+                    if(this.activeNum>1){
+                        this.activeNum--;
+                        console.log(this.activeNum);
+                    }
+                },
+            },
+        })
+    </script>
+</body>
+</html>

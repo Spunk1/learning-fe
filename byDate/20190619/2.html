@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script>
+        var mymain = Vue.component("mymain", {
+            data: function(){return {uname:"",upwd:""}},
+            template: `
+                <div>
+                    <h1>主页</h1>
+                    <h3>用户名：{{uname}}</h3>
+                    <h3>密码：{{upwd}}</h3>
+                    <router-link to="/reg">注册</router-link>
+                </div>
+            `,
+            mounted: function(){
+                this.uname = this.$route.params.uname;
+                this.upwd = this.$route.params.upwd;
+                console.log(this.$route.params);
+            }
+        });
+
+        var login = Vue.component("login", {
+            data: function(){return {uname:"",upwd:""}},
+            template: `
+                <div>
+                    <h1>请登录</h1>
+                    用户名：<input type="text" v-model="uname"></input>
+                    密码：<input type="text" v-model="upwd"></input>
+                    <button @click="toLogin">登录</button>
+                    <router-link :to="'/main/'+uname+'/'+upwd">登录</router-link>
+                </div>
+            `,
+            methods: {
+                toLogin: function(){
+                    this.$router.push("/main/"+this.uname+"/"+this.upwd);
+                },
+            },
+        });
+
+
+        var reg = Vue.component("reg", {
+            template: `
+                <div>
+                    <h1>注册页</h1>
+                    <button @click="backToLogin">注册完成，去登陆</button>
+                </div>
+            `,
+            methods: {
+                backToLogin: function(){this.$router.push("/login");},
+            },
+        });
+
+
+        var NotFound = Vue.component("NotFound", {
+            template: `
+                <div>
+                    <h1>404 not found</h1>
+                    <router-link to="/login">返回首页</router-link>
+                </div>
+            `,
+
+        });
+
+        const myRoutes = [
+            {path:"",component:login},
+            {path:"/login",component:login},
+            {path:"/reg",component:reg},
+            {path:"/main/:uname/:upwd",component:mymain},
+            {path:"*",component:NotFound}
+        ];
+
+        const zhouzhou = new VueRouter({
+            routes: myRoutes
+        });
+
+        new Vue({
+            el: "#app",
+            router: zhouzhou,
+        });
+    
+    </script>
+</body>
+</html>

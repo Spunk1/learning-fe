@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <table id="td1" width="80%" border="1">
+            <thead>
+                <tr>
+                    <th>uid</th>
+                    <th>name</th>
+                    <th>age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="user in users">
+                    <td>{{user.uid}}</td>
+                    <td>{{user.uname}}</td>
+                    <td>{{user.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button @click="createUser">add</button>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            users: [
+                {uid: 1,uname: "tom",age: 28},
+                {uid: 2,uname: "jerry",age: 29},
+                {uid: 3,uname: "tommy",age: 30},
+            ]
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data: exampleData,
+            methods: {
+                createUser:function(){
+                    /* console.log(11111111111); */
+                    this.users.push({
+                        uid:4,uname:"dodo",age:31
+                    });
+                }
+            },
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{list-style: none;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        添加用户：<input type="text" @keydown.enter="addName" v-model="nam">
+        <ul>
+            <li v-for="(name,idx) in activeData">
+                <span>{{name.text}}</span>
+                <button @click="jian(idx)">X</button>
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            nam:"",
+            activeData:[],
+        };
+
+        var app = new Vue({
+            el:"#app",
+            data: exampleData,
+            methods: {
+                jian:function(n){
+                    this.activeData.splice(n,1);
+                },
+                addName:function(e){
+                    console.log(1);
+                    if(e.target.value!==""){
+                        this.activeData.push({text:this.nam});
+                    }
+                    this.nam="";
+                },
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app{
+            background-color: pink;
+        }
+        a{text-decoration: none;color: #000;}
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1 v-cloak>{{msg}}</h1>
+        <ul>
+            <li v-for="item in list">{{item.name}}</li>
+        </ul>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="js/vue-resource.js"></script>
+    <script>
+
+
+        new Vue({
+            el: "#app",
+            data:{
+                msg:"hello",
+                list:[],
+            },
+            mounted: function(){
+                var url = "1.php";
+                this.$http.get(url).then(
+                    function(data){
+                        console.log(data);
+                        this.list = data.body;
+                    }
+                );
+            },
+        });
+    </script>
+</body>
+</html>

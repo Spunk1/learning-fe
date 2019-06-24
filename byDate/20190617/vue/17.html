@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="app">
+        <my-a></my-a>
+        <hr>
+        <my-b></my-b>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        /* 创建公共组件 */
+        var bus = new Vue();
+        Vue.component("my-a", {
+            data: function(){return {resaveData: "",actValue: ""}},
+            template: `
+                <div>
+                    <h4>A组件</h4>
+                    <h3>B的数据{{resaveData}}</h3>
+                    <input type="type" v-model="actValue"></input>
+                </div>
+            `,
+            mounted: function(){
+                var a = this;
+                console.log(1);
+                bus.$on("cutomeEventB",function(msg){
+                    a.resaveData = msg;
+                });
+            },
+            updated: function(){
+                console.log(2);
+                var b = this.actValue;
+                bus.$emit("cutomeEventA",b);
+            },
+        });
+
+        Vue.component("my-b", {
+            data: function(){return {resaveData: "",actValue:""}},
+            template: `
+                <div>
+                    <h4>B组件</h4>
+                    <h3>A的数据{{resaveData}}</h3>
+                    <input type="type" v-model="actValue"></input>
+                </div>
+            `,
+            mounted: function(){
+                var a = this;
+                console.log(1);
+                bus.$on("cutomeEventA",function(msg){
+                    a.resaveData = msg;
+                });
+            },
+            updated: function(){
+                console.log(2);
+                var b = this.actValue;
+                bus.$emit("cutomeEventB",b);
+            },
+        });
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>

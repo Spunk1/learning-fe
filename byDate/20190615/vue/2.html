@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .myred{color: red}
+        .myyellow{color: yellow}
+        .mysize{font-size: 39px}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h3 v-bind:style="{backgroundColor:bgc}">点击变色</h3>
+
+        <button @click="modifyColor">改变颜色</button>
+        <h3 v-bind:style="{backgroundColor:bgc,color:myco}">test2</h3>
+
+        <!-- isred为true时 将myred绑定到class上 -->
+        <p v-bind:class="{myred:isred}">bgred</p>
+
+        <button v-bind:disabled="isdisable">123</button>
+    </div>
+
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            bgc: "#ccc",
+            myco: "a00",
+            imgurl: "2.jpg",
+            isred: true,
+            iscustome: true,
+            hadmore: true,
+            isdisable: true
+        };
+
+        var app = new Vue({
+            el: "#app",
+            data: exampleData,
+            methods: {
+                modifyColor:function(){
+                    this.bgc = this.getcolor();
+                    this.myco= this.getcolor();
+                },
+                getcolor: function(){
+                    var r = Math.floor(Math.random()*256);
+                    var g = Math.floor(Math.random()*256);
+                    var b = Math.floor(Math.random()*256);
+                    return `rgb(${r},${g},${b})`;
+                }
+            },
+        });
+    </script>
+</body>
+</html>

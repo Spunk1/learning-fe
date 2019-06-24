@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>组件生命周期</h3>
+    <hr>
+    <div id="app">
+        <button @click="mychange">切换显示</button>
+        <my-component v-if="isShow"></my-component>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("my-component", {
+            template:`
+                <div>
+                    <input type="text" v-model="myAddr">
+                    <input type="text" v-model="myTel">
+                    <h5>{{myAddr}}</h5>
+                    <h5>{{myTel}}</h5>
+                </div>
+            `,
+            data: function(){return {myAddr:"",myTel:139};},
+            methods: {
+                handleClick: function(){
+                    this.count++;
+                }
+            },
+            watch: {            /* 监听属性 */
+                myAddr: function(){console.log("数据发生了修改"+this.myAddr)},
+                myTel: function(){console.log("数据发生了修改"+this.myTel)},
+            },
+        });
+
+
+        var exampleData = {
+            msg: "Hello",
+            isShow: true
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+            methods: {
+                mychange: function(){
+                    this.isShow = !this.isShow;
+                }
+            }
+        });
+    </script>
+</body> 
+</html>

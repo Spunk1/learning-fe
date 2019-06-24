@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <my-parent></my-parent>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("my-parent", {
+            data: function(){return {nameList: ["tom","jerry"]}},
+            template: `
+                <div>
+                    <h4>父组件</h4>
+                    <ul>
+                        <li v-for="item in nameList">{{item}}</li>
+                    </ul>
+                    <my-child myvalue="tom"></my-child>
+                    <my-child myvalue="jerry"></my-child>
+                </div>
+            `,
+        });
+
+        Vue.component("my-child", {
+            props:["myvalue"],
+            data: function(){return {inputValue:"" , actValue:""}},
+            template: `
+                <div>
+                    <h3>子组件</h3>
+                    <input type="type" @keydown.enter="saveValue" v-model="actValue"></input>
+                </div>
+            `,
+            methods: {
+                saveValue: function(){
+                    var n = this.actValue;
+                    this.$parent.nameList.push(this.myvalue+":"+n);
+                    this.actValue = "";
+                }
+            },
+        });
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>

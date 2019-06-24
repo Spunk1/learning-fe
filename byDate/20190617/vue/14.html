@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        Vue.component("parent",{
+            methods: {
+                /* 创建方法接收子组件的数据 */
+                getData: function(mydata){
+                    /* console.log(mydata+"jiehsoudao"); */
+                    if(this.isShow){
+                        this.isShow = !mydata;
+                    }else{
+                        this.isShow = mydata;
+                    }
+                }
+            },
+            template: `
+                <div>
+                    <h4>父组件</h4>
+                    <child @dataEvent="getData"></child>
+                    <ul v-if="isShow">
+                        <li v-for="list in lists">{{list}}</li>
+                    </ul>
+                </div>
+            `,
+            data: function(){return {lists: [1,2,3,4,5],isShow:true}},
+        });
+
+        Vue.component("child",{
+            template:`
+                <div>
+                    <h4>子组件</h4>
+                    <button @click="setData">点击按钮发送数据</button>
+                </div>
+            `,
+            methods: {
+                setData: function(){
+                    this.$emit("dataEvent",true);
+                }
+            }
+        });
+
+        new Vue({
+            el: "#app"
+        });
+    </script>
+</body>
+</html>

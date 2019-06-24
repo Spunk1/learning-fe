@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>自定义指令</h3>
+    <hr>
+    <div id="app">
+        {{count}}
+        <input type="text" v-model.lazy="count">
+        <button @click="pluseCount">click</button>
+        <hr>
+        <hr>
+        <h3 v-change-background-color="count">自定指令</h3>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        var exampleData = {
+            msg: "hello",
+            count: "#f00",
+        };
+
+        new Vue({
+            el: "#app",
+            data: exampleData,
+
+            methods: {
+                pluseCount:function(){
+                    this.count++;
+                },
+            },
+
+            directives:{        /* 所有的自定义指令都保存在此对象中 */
+                changeBackgroundColor:{        /* 自定义的change指令 */
+                    bind:function(el,bindings){
+                        el.style.backgroundColor=bindings.value;
+                    },
+                    update:function(el,bindings){
+                        el.style.backgroundColor=bindings.value;
+                    },
+                    unbind:function(el,bindings){
+                        console.log("解除绑定");
+                    },
+                }
+            },
+        });
+    </script>
+</body>
+</html>

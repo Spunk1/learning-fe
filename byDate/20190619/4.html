@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app{
+            background-color: pink;
+        }
+        a{text-decoration: none;color: #000;}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script>
+        var mLogin = Vue.component("mLogin", {
+            template:`
+                <div>
+                    <h1>登录页面</h1>
+                    <router-link to="/main">跳转到主页面</router-link>
+                </div>
+            `,
+        });
+
+        var mMain = Vue.component("mMain", {
+            template:`
+                <div>
+                    <h1>主页面</h1>
+                    <router-link to="/login">重新登录</router-link>
+                    <ul>
+                        <li><router-link to="/main/inbox">收件箱</router-link></li>
+                        <li><router-link to="/main/outbox">发件箱</router-link></li>
+                    </ul>
+                    <router-view></router-view>
+                </div>
+            `,
+        });
+
+        var inbox = Vue.component("inbox", {
+            template: `
+                <div>
+                    <h3>收件箱</h3>
+                    <p>收到邮件</p>
+                </div>
+            `,
+        });
+
+        var outbox = Vue.component("outbox", {
+            template: `
+                <div>
+                    <h3>发件箱</h3>
+                    <p>已发邮件</p>
+                </div>
+            `,
+        });
+
+
+        const myRoutes = [
+            {path:"",redirect:"/login"},
+            {path:"/login",component:mLogin},
+            {path:"/main",component:mMain,children:[
+                {path:"",component:inbox},
+                {path:"inbox",component:inbox},
+                {path:"outbox",component:outbox} 
+            ]}
+        ];
+
+        const myrouter = new VueRouter({
+            routes: myRoutes
+        });
+
+        new Vue({
+            el: "#app",
+            router: myrouter,
+        })
+    </script>
+</body>
+</html>
